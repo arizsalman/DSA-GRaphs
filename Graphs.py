@@ -31,3 +31,20 @@ def func(prices):
     return max_profit
 print (func ([1,2,2,3,1]))
 
+
+
+"""Leet Code no 53 s"""
+
+def fun(nums):
+     n=len(nums)
+     maxi=float("-inf")
+     total=0
+     for i in range(n):
+          total =total +nums[i]
+          maxi=max(maxi, total )
+          if total < 0:
+               total =0
+     return maxi 
+print (fun( [-2,1,-3,4,-1,2,1,-5,4]))
+
+
