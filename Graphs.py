@@ -50,28 +50,42 @@
 
 # leet code  no 256 
 
+# def func (nums):
+#      n=len(nums)    
+#      dic={}
+#      for i in range (0, n+1):
+#           dic[i]=0
+#      for num in nums :
+#           dic[num]=1
+#      for k, v in dic.items():
+#           if v ==0 :
+#                return k 
+#     #  return dic 
+# print( func ([3,0,1]))
+
+# def func(nums):
+#     n = len(nums)
+#     dic = {}
+#     for i in range(0, n + 1):
+#         dic[i] = 0
+#     for num in nums:
+#         dic[num] = 1
+#     for k, v in dic.items():
+#         if v == 0:
+#             return k
+
+# print(func([3, 0, 1]))
+
+
+# leetcode no 152
+
 def func (nums):
-     n=len(nums)    
-     dic={}
-     for i in range (0, n+1):
-          dic[i]=0
-     for num in nums :
-          dic[num]=1
-     for k, v in dic.items():
-          if v ==0 :
-               return k 
-    #  return dic 
-print( func ([3,0,1]))
-
-def func(nums):
-    n = len(nums)
-    dic = {}
-    for i in range(0, n + 1):
-        dic[i] = 0
-    for num in nums:
-        dic[num] = 1
-    for k, v in dic.items():
-        if v == 0:
-            return k
-
-print(func([3, 0, 1]))
+  res=max(nums)
+  curmin,curmax=1,1
+  for n in nums:
+    temp =curmax*n
+    curmax=max(n*curmax, n*curmin, n)
+    curmin=min(temp, n*curmin, n)
+    res =max(res,curmax)
+  return res  
+print( func(nums = [2,3,-2,4]))
