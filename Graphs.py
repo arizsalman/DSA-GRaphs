@@ -122,17 +122,27 @@
 # print(searchInsert( nums = [1,3,5,6], target = 2))
 # print(searchInsert(nums = [1,3,5,6], target = 7))
 
-def func( arr, target ):
-   for i in range (len(arr)-1):
-      if arr[i] == target :
-         return True 
-   return False 
-print(func ([1,2,3,4,5], 2))
+# def func( arr, target ):
+#    for i in range (len(arr)-1):
+#       if arr[i] == target :
+#          return True 
+#    return False 
+# print(func ([1,2,3,4,5], 2))
 
-def some ( nums):
-   left = 0
-   for i in range (len( nums )-1):
-      if nums[i] != 0:
-         nums[i],nums[left]= nums[left ],nums[i]
-      left+=1
-print (some  ( [0,1,2,3]))
+# def some ( nums):
+#    left = 0
+#    for i in range (len( nums )-1):
+#       if nums[i] != 0:
+#          nums[i],nums[left]= nums[left ],nums[i]
+#       left+=1
+# print (some  ( [0,1,2,3]))
+
+twoD=[[0,1,1],[2,3,4,5],[6,7,8,9]]
+def functio(twoD ):
+  arr=[]
+  for i in range (len (twoD)):
+    for j in range(len (twoD[i])):
+      arr.append(twoD[i][j])
+      print (arr)
+      return arr
+print(functio(twoD=[[0,1,1],[2,3,4,5],[6,7,8,9]]))
