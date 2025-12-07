@@ -137,12 +137,60 @@
 #       left+=1
 # print (some  ( [0,1,2,3]))
 
-twoD=[[0,1,1],[2,3,4,5],[6,7,8,9]]
-def functio(twoD ):
-  arr=[]
-  for i in range (len (twoD)):
-    for j in range(len (twoD[i])):
-      arr.append(twoD[i][j])
-      print (arr)
-      return arr
-print(functio(twoD=[[0,1,1],[2,3,4,5],[6,7,8,9]]))
+# twoD=[[0,1,1],[2,3,4,5],[6,7,8,9]]
+# def functio(twoD ):
+#   arr=[]
+#   for i in range (len (twoD)):
+#     for j in range(len (twoD[i])):
+#       arr.append(twoD[i][j])
+#       print (arr)
+#       return arr
+# print(functio(twoD=[[0,1,1],[2,3,4,5],[6,7,8,9]]))
+
+
+num = int(input())
+num2= list (map(int, input().split()))
+count=0
+if len(num2) != num:
+    print("Error: Number of elements does not match N")
+    exit()
+for i in range (num):
+   if num2[i] == i + 1:
+       count +=1
+print ( count )
+
+
+
+num = int(input())
+num2 = list(map(int, input().split()))
+
+visited = [0] * num  # 0 = not visited, 1 = visiting, 2 = visited
+in_cycle = [False] * num
+
+def dfs(u):
+    if visited[u] == 1:
+        # Cycle detected, return start of cycle
+        return u
+    if visited[u] == 2:
+        # Already processed, no cycle here
+        return -1
+    visited[u] = 1
+    v = num2[u] - 1  # zero-based index
+    res = dfs(v)
+    visited[u] = 2
+
+    if res == -1:
+        return -1
+    if res == u:
+        in_cycle[u] = True
+        return -1
+    if res != -1:
+        in_cycle[u] = True
+        return res
+    return -1
+
+for i in range(num):
+    if visited[i] == 0:
+        dfs(i)
+
+print(sum(in_cycle))
